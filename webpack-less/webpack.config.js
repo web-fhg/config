@@ -1,15 +1,15 @@
 var path = require("path");
-//
-var Clean = require('clean-webpack-plugin');//
-var Html = require('html-webpack-plugin');//
-var Css = require('mini-css-extract-plugin');//
-var Webpack = require("webpack");
+//插件引入
+var Clean = require('clean-webpack-plugin'); //每次打包都清除上一次打包留下来的文件
+var Html = require('html-webpack-plugin');   // 把hmtl文件单独抽取出来
+var Css = require('mini-css-extract-plugin');//把css文件单独抽取出来
+var Webpack = require("webpack");            //使用webpack自带的热更新
 module.exports = {
     entry:{
-        index:'./src/index.js'
+        index:'./src/index.js' //入口
     },
     output:{
-        path:path.resolve(__dirname,'dist'),
+        path:path.resolve(__dirname,'dist'), //出口
         filename:'[name].bundle.js'
     },
     module:{
@@ -37,8 +37,10 @@ module.exports = {
                         options: {
                             ident: 'postcss',
                             plugins: [
+                                //添加前缀
                                 require('autoprefixer')(),
-                                // require('cssnano')({
+                                //压缩css
+                                // require('cssnano')({      
                                 //     preset: 'default'
                                 // })
                             ]
@@ -63,6 +65,7 @@ module.exports = {
                         loader:'img-loader',
                         options:{
                             plugins:[
+                                //压缩图片
                                 require('imagemin-pngquant')({
                                     quality:[0.3,0.5]
                                   }),
