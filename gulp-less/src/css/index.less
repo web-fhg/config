@@ -1,0 +1,190 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    body{
+        font-size: 12px;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-position: center;
+        .wrapper{
+            width: 100vw;
+            height: 100vh;
+            padding-top: 60px;
+            box-sizing: border-box;
+            background-color: rgba(0,0,0,0.2);
+            position: relative;
+            .song-img{
+                position: relative;
+                width:70%;
+                height: 0;
+                padding-top: 70%;
+                // border: 1px solid black;
+                margin: 0 auto;
+                .img-box{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    bottom: 0;
+                    right: 0;
+                    background-color: black;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    img{
+                        width: 75%;
+                        height: 75%;
+                        border-radius: 50%;
+                    }
+                }
+            }
+            .song-info{
+                width: 100%;
+                height: 126px;
+                margin-top: 20px;
+                text-align: center;
+                // border: 1px solid black;
+                box-sizing: border-box;
+                .song-name{
+                    font-size: 24px;
+                    line-height: 36px;
+                    margin-bottom: 8px;
+                    color: rgba(255, 255, 255, 0.86);
+                }
+                .singer-name,
+                .album-name{
+                    font-size: 12px;
+                    line-height: 16px;
+                    color: rgba(255, 255, 255, 0.6);
+                    margin-top: px;                
+                }
+            }
+            .pro{
+                display: flex;
+                .cur-time,
+                .all-time{
+                    width: 60px;
+                    height: 40px;
+                    // border: 1px solid black;
+                    color: #fff;
+                    text-align: center;
+                    line-height: 40px;
+                }
+                .pro-wrap{
+                    flex: 1;
+                    // border: 1px solid black;
+                    position: relative;
+                    .pro-bottom{
+                        position: absolute;
+                        //top: calc(50% - 1px);
+                        top: 50%;
+                        width: 100%;
+                        height: 2px;
+                        background-color: #dad8d8;
+                    }
+                    .pro-top{
+                        position: absolute;
+                        // top: calc(50% - 1px);
+                        top: 50%;
+                        width: 0;
+                        height: 2px;
+                        background-color: rgb(252, 252, 252);
+                        .slider{
+                            width: 5px;
+                            height: 5px;
+                            border-radius: 50%;
+                            background-color:  rgb(252, 252, 252);
+                            position: absolute;
+                            top: -1.5px;
+                            right: -2.5px;
+                        }
+                    }
+                }
+            }
+            .control{
+                display: flex;
+                // border: 1px solid black;
+                position: absolute;
+                width: 100%;
+                height: 60px;
+                bottom: 0;
+                box-sizing: border-box;
+                background-color: rgba(0,0,0,0.3);
+                .btn{
+                    flex: 1;
+                    height: 100%;
+                    // border: 1px solid black;
+                    background-repeat: no-repeat;
+                    background-size: 20px;
+                    background-position: center;
+                }
+                .like{
+                    background-image: url("https://6668-fhg-1259555039.tcb.qcloud.la/QQ-music/img/icon-like.png?sign=d311f5d82ad24cd51c0266d354e5ceaf&t=1562072528");
+                    &.solid{
+                        background-image: url("https://6668-fhg-1259555039.tcb.qcloud.la/QQ-music/img/icon-like-solid.png?sign=c038f88d816d36de80daf0a6b3d7f55a&t=1562072556");
+                    }
+                }
+                .prev{
+                    background-image: url("https://6668-fhg-1259555039.tcb.qcloud.la/QQ-music/img/icon-prev.png?sign=984f39cfe732577cd940cf6e363b58b6&t=1562072672");
+                }
+                .play{
+                    background-image: url("https://6668-fhg-1259555039.tcb.qcloud.la/QQ-music/img/icon-play.png?sign=60f060cf1a29430cec4776f8a0b75269&t=1562072696");
+                    &.playing{
+                        background-image: url("https://6668-fhg-1259555039.tcb.qcloud.la/QQ-music/img/icon-pause.png?sign=cd181d155df87704f1e0bdf78c9a95e1&t=1562072735");
+                    }
+                }
+                .next{
+                    background-image: url("https://6668-fhg-1259555039.tcb.qcloud.la/QQ-music/img/icon-next.png?sign=cd90e886bdcdb99edb8e1a29632ececa&t=1562072772");
+                }
+                .list{
+                    background-image: url("https://6668-fhg-1259555039.tcb.qcloud.la/QQ-music/img/icon-list.png?sign=2cfb09d5623a1a9168e79b07c40580ef&t=1562072795");
+                }
+            }
+
+            .play-list{
+                display: none;
+                &.show{
+                    display: block; 
+                }
+                width: 100%;
+                background-color: #fff;
+                position: absolute;
+                bottom: 0;
+                .play-header{
+                    height: 50px;
+                    line-height: 50px;
+                    text-align: center;
+                    font-size: 16px;                
+                }
+                .play-wrap{
+                    width: 100%;
+                    li{
+                        &.sign{
+                            color: red;
+                        }
+                        height: 20px;
+                        line-height: 20px;
+                        padding: 10px;
+                        border-top: 1px solid rgba(0, 0, 0, 0.1);
+                        h3{
+                            span{
+                                font-size: 12px;
+                            }
+                        }                  
+                    }
+                }
+                .close-btn{
+                    height: 50px;
+                    line-height: 50px;
+                    text-align: center;
+                    font-size: 16px;
+                    border-top: 1px solid rgba(0, 0, 0, 0.1);
+                }
+
+            }
+              
+        }
+    }
+}
