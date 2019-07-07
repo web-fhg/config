@@ -1,8 +1,8 @@
 var path = require("path");
 //
-const {clean} = require('clean-webpack-plugin');//
+var Clean = require('clean-webpack-plugin');//
 var Html = require('html-webpack-plugin');//
-var css = require('mini-css-extract-plugin');//
+var Css = require('mini-css-extract-plugin');//
 var Webpack = require("webpack");
 module.exports = {
     entry:{
@@ -87,13 +87,13 @@ module.exports = {
                 //removeComments:true
             }
         }),
-        new css({
+        new Css({
             filename: "[name].css",
         }),
-        
+        // 开启热更新
         new Webpack.HotModuleReplacementPlugin(),
         // 每次清除上一次的打包文件
-        //new clean()
+        //new Clean()
     ],
     devServer:{
         // 提供内容的路径
